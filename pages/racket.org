@@ -1,0 +1,15 @@
+#+TITLE: racket
+
+** 生成可执行文件
+*** 1. 生成exe
+#+BEGIN_SRC bat
+raco exe --gui  timer.rkt
+#+END_SRC
+生成图形应用时要加上--gui
+*** 2. 生成distributable
+#+BEGIN_SRC bat
+raco distribute timer timer.exe
+#+END_SRC 
+timer是生成的文件夹，timer.exe是第一步生成的exe
+*** 注意事项
+在程序中不要有直接new, 而要定义变量，否则生成的exe会弹出dos窗口显示一些系统信息。也就是说，*调试时使用racket执行时，不能有任何东西输出到standard-out*。
